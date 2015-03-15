@@ -1,0 +1,22 @@
+textarea {
+	font-family: monospace;
+	width: 80%;
+}
+
+#editor { 
+    position: absolute;
+    width: 50%;
+    height: 90%;
+}
+
+.container {
+
+}
+
+.viewer {
+	width: 45%;
+	height: 550px;
+	/*float: right;*/
+	display: inline;
+	float: right;
+}

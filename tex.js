@@ -1,7 +1,13 @@
-
-var source_code = document.getElementById("input").value
-
 var pdf_dataurl = undefined;
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/latex");
+
+document.getElementById("compile").addEventListener("click", function(e) {
+  // var source_code = document.getElementById("input").value;
+  var source_code = editor.getValue();
+  compile(source_code);
+});
 
 
 var compile = function(source_code) {
@@ -19,8 +25,8 @@ var compile = function(source_code) {
         return;
 
       window.open(pdf_dataurl)
+      // document.getElementById('viewer').src = "/ViewerJS/#../"+ pdf_dataurl;
     });
   });
 }
 
-compile(source_code);
