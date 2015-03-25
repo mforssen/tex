@@ -24,8 +24,7 @@ var compile = function(source_code) {
       if(pdf_dataurl === false)
         return;
 
-      window.open(pdf_dataurl)
-      // document.getElementById('viewer').src = "/ViewerJS/#../"+ pdf_dataurl;
+      document.getElementById('viewer').src = pdf_dataurl;
     });
   });
 }
