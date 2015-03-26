@@ -13,7 +13,12 @@ var appendOutput = function(msg) {
   var content = document.getElementById("output").innerHTML;
 
   var output = document.getElementById("output");
-  output.innerHTML = content + "<br />" + msg;
+
+  if (content == "") {
+    output.innerHTML = content + msg;
+  } else {
+    output.innerHTML = content + "<br />" + msg;
+  }
 
   output.scrollTop = 999999;
   console.log(msg);
