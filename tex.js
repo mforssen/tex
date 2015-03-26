@@ -9,11 +9,24 @@ document.getElementById("compile").addEventListener("click", function(e) {
   compile(source_code);
 });
 
+var appendOutput = function(msg) {
+  var content = document.getElementById("output").innerHTML;
+
+  var output = document.getElementById("output");
+  output.innerHTML = content + "<br />" + msg;
+
+  output.scrollTop = 999999;
+  console.log(msg);
+}
 
 var compile = function(source_code) {
+  document.getElementById("output").innerHTML = "";
 
   var pdftex = new PDFTeX();
   pdftex.set_TOTAL_MEMORY(80*1024*1024).then(function() {
+
+    pdftex.on_stdout = appendOutput;
+    pdftex.on_stderr = appendOutput;
 
     var start_time = new Date().getTime();
 
